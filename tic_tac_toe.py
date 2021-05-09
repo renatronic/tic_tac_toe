@@ -6,7 +6,7 @@ root.iconbitmap(r'C:/Users/m64/Downloads/python/tic_tac_toe/ttt.ico')
 root.title('Tic-tac-toe')
 root.resizable(width=False, height=False)
 
-click = True
+click = True # it will be used to decide if a button should be filled with a X or an O
 count = 0 # it will track the moves number
 
 # text variables are associated with widgets in tkinter, in this case with our buttons
@@ -51,10 +51,53 @@ def press(num, r, c): # checks wich button we pressed
     if click == True:
         labelPhoto = Label(root, image = x_img)
         labelPhoto.grid(row = r, column = c)
+        
+        if num == 1:
+            btn1.set('X')
+        elif num == 2:
+            btn2.set('X')
+        elif num == 3:
+            btn3.set('X')
+        elif num == 4:
+            btn4.set('X')
+        elif num == 5:
+            btn5.set('X')
+        elif num == 6:
+            btn6.set('X')
+        elif num == 7:
+            btn7.set('X')
+        elif num == 8:
+            btn8.set('X')
+        else:
+            btn9.set('X')
+        
+        count += 1
         click = False
+
     else:
         labelPhoto = Label(root, image = o_img)
         labelPhoto.grid(row = r, column = c)
+
+        if num == 1:
+            btn1.set('O')
+        elif num == 2:
+            btn2.set('O')
+        elif num == 3:
+            btn3.set('O')
+        elif num == 4:
+            btn4.set('O')
+        elif num == 5:
+            btn5.set('O')
+        elif num == 6:
+            btn6.set('O')
+        elif num == 7:
+            btn7.set('O')
+        elif num == 8:
+            btn8.set('O')
+        else:
+            btn9.set('O')
+
+        count += 1
         click = True
 
 play()
