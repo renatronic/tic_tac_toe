@@ -4,7 +4,7 @@ import tkinter.messagebox
 root = Tk()
 root.iconbitmap(r'C:/Users/m64/Downloads/python/tic_tac_toe/ttt.ico')
 root.title('Tic-tac-toe')
-root.resizable(width=False, height=False)
+root.resizable(width = False, height = False)
 
 click = True # it will be used to decide if a button should be filled with a X or an O
 count = 0 # it will track the moves number
@@ -73,6 +73,7 @@ def press(num, r, c): # checks wich button we pressed
         
         count += 1
         click = False
+        checkWin()
 
     else:
         labelPhoto = Label(root, image = o_img)
@@ -99,8 +100,7 @@ def press(num, r, c): # checks wich button we pressed
 
         count += 1
         click = True
-
-play()
+        checkWin()
 
 def checkWin(): # checks to see who won
     pass
