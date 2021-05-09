@@ -6,7 +6,7 @@ root.iconbitmap(r'C:/Users/m64/Downloads/python/tic_tac_toe/ttt.ico')
 root.title('Tic-tac-toe')
 root.resizable(width=False, height=False)
 
-click = True #
+click = True
 count = 0 # it will track the moves number
 
 # text variables are associated with widgets in tkinter, in this case with our buttons
@@ -45,9 +45,19 @@ def play(): # contains the game
     button9 = Button(root, height = 9, width = 19, relief= 'ridge', borderwidth = 0.5, background = '#4d4dff', textvariable = btn9, command = lambda:press(9, 2, 2))
     button9.grid(row = 2, column = 2)
 
-play()
 def press(num, r, c): # checks wich button we pressed
-    pass
+    global click, count
+
+    if click == True:
+        labelPhoto = Label(root, image = x_img)
+        labelPhoto.grid(row = r, column = c)
+        click = False
+    else:
+        labelPhoto = Label(root, image = o_img)
+        labelPhoto.grid(row = r, column = c)
+        click = True
+
+play()
 
 def checkWin(): # checks to see who won
     pass
