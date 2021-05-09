@@ -6,8 +6,11 @@ root.iconbitmap(r'C:/Users/m64/Downloads/python/tic_tac_toe/ttt.ico')
 root.title('Tic-tac-toe')
 root.resizable(width = False, height = False)
 
-click = True # it will be used to decide if a button should be filled with a X or an O
-count = 0 # it will track the moves number
+# it will be used to decide if a button should be filled with X or O
+click = True
+
+# it will track the moves number
+count = 0
 
 # text variables are associated with widgets in tkinter, in this case with our buttons
 btn1 = StringVar()
@@ -103,9 +106,53 @@ def press(num, r, c): # checks wich button we pressed
         checkWin()
 
 def checkWin(): # checks to see who won
-    pass
+    global click, count
 
+    if (btn1.get() == 'X' and btn2.get() == 'X' and btn3.get() == 'X' or
+       btn4.get() == 'X' and btn5.get() == 'X' and btn6.get() == 'X' or
+       btn7.get() == 'X' and btn8.get() == 'X' and btn9.get() == 'X' or
+       btn1.get() == 'X' and btn4.get() == 'X' and btn7.get() == 'X' or
+       btn2.get() == 'X' and btn5.get() == 'X' and btn8.get() == 'X' or
+       btn3.get() == 'X' and btn6.get() == 'X' and btn9.get() == 'X' or
+       btn1.get() == 'X' and btn5.get() == 'X' and btn9.get() == 'X' or
+       btn3.get() == 'X' and btn5.get() == 'X' and btn7.get() == 'X'):
+        tkinter.messagebox.showinfo('Result', 'Player X Wins!')
+        click = True
+        count = 0
+        clear()
+        play()
+    
+    elif (btn1.get() == 'O' and btn2.get() == 'O' and btn3.get() == 'O' or
+    btn4.get() == 'O' and btn5.get() == 'O' and btn6.get() == 'O' or
+    btn7.get() == 'O' and btn8.get() == 'O' and btn9.get() == 'O' or
+       btn1.get() == 'O' and btn4.get() == 'O' and btn7.get() == 'O' or
+       btn2.get() == 'O' and btn5.get() == 'O' and btn8.get() == 'O' or
+       btn3.get() == 'O' and btn6.get() == 'O' and btn9.get() == 'O' or
+       btn1.get() == 'O' and btn5.get() == 'O' and btn9.get() == 'O' or
+       btn3.get() == 'O' and btn5.get() == 'O' and btn7.get() == 'O'):
+        tkinter.messagebox.showinfo('Result', 'Player O Wins!')
+        count = 0 # we don't have to set click equals True, since if O wins we already sets it equal to True in the press function
+        clear()
+        play()
+    
+    elif(count == 9):
+        tkinter.messagebox.showinfo('Result', 'Tie Game!')
+        click = True
+        count = 0
+        clear()
+        play()
+    
 def clear(): # clears the text variables and resets the game
-    pass
+    btn1.set('')
+    btn2.set('')
+    btn3.set('')
+    btn4.set('')
+    btn5.set('')
+    btn6.set('')
+    btn7.set('')
+    btn8.set('')
+    btn9.set('')
+
+play()
 
 root.mainloop()
